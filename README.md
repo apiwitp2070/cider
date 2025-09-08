@@ -17,6 +17,10 @@ If don't need it, or want to install in existing project, you can use `groupped`
    bunx --bun shadcn@latest add https://cider-alert.vercel.app/r/groupped.json
    ```
     This will store all files under `/cider` directory
+
+- Or just copy the files manually from from either `registry` or inside `src` manually.
+
+
 ### Usage
 
 1. Add `ConfirmDialog` component at the app root (e.g. Next.js `src/app/layout.tsx`):
