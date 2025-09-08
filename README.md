@@ -2,11 +2,12 @@
 
 Cider provides a small set of components and utilities to open a Shadcn AlertDialog programmatically.
 
-### installation
+### Installation
 
-This package comes with modified shadcn `Button` and `AlertDialog` to include custom variant and add loading state to it. If don't need it, or want to install in existing project, you can use `groupped` registry to download file to separate directory first, then grab only files that you want.
+<ins>Note</ins>: This package comes with modified shadcn `Button` and `AlertDialog` to include custom variant and add loading state to it.  
+If don't need it, or want to install in existing project, you can use `groupped` registry to download file to separate directory first, then grab only files that you want.
 
-- If install in fresh application, You can grab the files from this repository with shadcn registry command.
+- If install in fresh application, You can grab the files from this repository with shadcn registry command. Files will be downloaded to shadcn default path.
    ```bash
    bunx --bun shadcn@latest add https://cider-alert.vercel.app/r/default.json
    ```
