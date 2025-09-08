@@ -1,5 +1,55 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Cider (Shadcn dialog caller) Registry
+
+Cider provides a small set of components and utilities to open a Shadcn AlertDialog programmatically.
+
+### Registry Layout
+
+- Directory: `registry/neutral/Cider`
+  - Includes: `components/ui/*`, `components/common/confirm-dialog.tsx`, `utils/dialog.ts`, `interfaces/common/dialog.ts`, `consts/common/dialog.ts`, and `lib/utils.ts`.
+- Index: `registry.json` (lists all registry items and their files)
+
+### How to Use
+
+1. Copy files from `registry/neutral/Cider` into your project under `src/` preserving structure (or consume via `registry.json`).
+2. Add the host component at the app root (e.g. Next.js `src/app/layout.tsx`):
+
+   ```tsx
+   import { ConfirmDialog } from "@/components/common/confirm-dialog";
+
+   export default function RootLayout({
+     children,
+   }: {
+     children: React.ReactNode;
+   }) {
+     return (
+       <html lang="en">
+         <body>
+           {children}
+           <ConfirmDialog />
+         </body>
+       </html>
+     );
+   }
+   ```
+
+3. Call the dialog anywhere:
+
+   ```tsx
+   import { dialog } from "@/utils/dialog";
+
+   function onAction() {
+     dialog.confirm({
+       title: "Are you sure?",
+       description: "This action cannot be undone.",
+       confirmText: "Confirm",
+     });
+   }
+   ```
+
+Variants are also available: `dialog.success(...)`, `dialog.info(...)`, `dialog.warning(...)`, `dialog.danger(...)`, `dialog.error(...)`.
+
 ## Getting Started
 
 First, run the development server:

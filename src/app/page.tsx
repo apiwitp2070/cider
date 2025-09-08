@@ -1,8 +1,8 @@
 "use client";
 
+import TextWithCopy from "@/components/common/text-with-copy";
 import { Button } from "@/components/ui/button";
 import { dialog } from "@/utils/dialog";
-import Image from "next/image";
 
 export default function Home() {
   function handleSubmit() {
@@ -10,60 +10,80 @@ export default function Home() {
   }
 
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <div>Mira</div>
-        <p>Easily call your Shadcn alert dialog with ease.</p>
+    <div className="items-center justify-items-center min-h-screen p-4 py-12 lg:py-20">
+      <main className="flex w-full max-w-3xl flex-col gap-6">
+        <header className="space-y-2">
+          <h1 className="text-3xl font-semibold tracking-tight">Cider</h1>
+          <p className="text-muted-foreground">
+            Shadcn Alert Dialog from anywhere using a tiny helper.
+          </p>
+        </header>
 
-        <Button onClick={handleSubmit}>Submit</Button>
+        <div className="flex items-center gap-3">
+          <Button onClick={handleSubmit}>Open Confirm</Button>
+        </div>
+
+        <section className="rounded-lg border p-5">
+          <h2 className="font-medium text-lg">Quick Start</h2>
+
+          <div className="mt-4 space-y-2">
+            <p>Get required files from registry</p>
+            <TextWithCopy>
+              bunx --bun shadcn@latest add
+              https://cider-alert.vercel.app/r/default.json
+            </TextWithCopy>
+            <div className="mt-4 space-y-2">
+              <p>
+                Add <code>{"<ConfirmDialog />"}</code> at your app root (e.g.
+                Next.js layout).
+              </p>
+              <TextWithCopy>
+                {`import { ConfirmDialog } from "@/components/common/confirm-dialog";
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body>
+        {children}
+        <ConfirmDialog />
+      </body>
+    </html>
+  );
+}`}
+              </TextWithCopy>
+            </div>
+          </div>
+
+          <div className="mt-4 space-y-2">
+            <div>
+              Call <code>dialog.confirm()</code> inside any function.
+            </div>
+            <TextWithCopy>
+              {`import { dialog } from "@/utils/dialog";
+
+function handleDelete() {
+  dialog.confirm({
+    title: "Delete item",
+    description: "Are you sure you want to proceed?",
+    confirmText: "Delete",
+    variant: "danger",
+  });
+}`}
+            </TextWithCopy>
+          </div>
+        </section>
+
+        <footer className="text-center mt-10">
+          <a
+            href="https://github.com/apiwitp2070/cider"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground"
+          >
+            Repository
+          </a>
+        </footer>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
