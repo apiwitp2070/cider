@@ -1,0 +1,101 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "cider",
+  "homepage": "https://cider-alert.vercel.app",
+  "items": [
+    {
+      "name": "default",
+      "type": "registry:component",
+      "title": "Confirm Dialog",
+      "dependencies": [
+        "class-variance-authority",
+        "clsx",
+        "lucide-react",
+        "tailwind-merge",
+        "@radix-ui/react-slot",
+        "@radix-ui/react-alert-dialog",
+        "@radix-ui/react-dialog"
+      ],
+      "devDependencies": [
+        "@tailwindcss/postcss",
+        "tailwindcss",
+        "tw-animate-css"
+      ],
+      "files": [
+        {
+          "path": "registry/neutral/default/components/common/confirm-dialog.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/neutral/default/components/ui/alert-dialog.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/neutral/default/components/ui/button.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/neutral/default/consts/common/dialog.ts",
+          "type": "registry:file",
+          "target": "consts/common/dialog.ts"
+        },
+        {
+          "path": "registry/neutral/default/interfaces/common/dialog.ts",
+          "type": "registry:file",
+          "target": "interfaces/common/dialog.ts"
+        },
+        {
+          "path": "registry/neutral/default/utils/dialog.ts",
+          "type": "registry:file",
+          "target": "utils/dialog.ts"
+        }
+      ]
+    },
+    {
+      "name": "groupped",
+      "type": "registry:component",
+      "title": "Confirm Dialog (Groupped Directory)",
+      "dependencies": [
+        "class-variance-authority",
+        "clsx",
+        "lucide-react",
+        "tailwind-merge",
+        "@radix-ui/react-slot",
+        "@radix-ui/react-alert-dialog",
+        "@radix-ui/react-dialog"
+      ],
+      "files": [
+        {
+          "path": "registry/neutral/groupped/confirm-dialog.tsx",
+          "type": "registry:component",
+          "target": "cider/confirm-dialog.tsx"
+        },
+        {
+          "path": "registry/neutral/groupped/ui/alert-dialog.tsx",
+          "type": "registry:component",
+          "target": "cider/ui/alert-dialog.tsx"
+        },
+        {
+          "path": "registry/neutral/groupped/ui/button.tsx",
+          "type": "registry:component",
+          "target": "cider/ui/button.tsx"
+        },
+        {
+          "path": "registry/neutral/groupped/const.ts",
+          "type": "registry:file",
+          "target": "cider/const.ts"
+        },
+        {
+          "path": "registry/neutral/groupped/interface.ts",
+          "type": "registry:file",
+          "target": "cider/interface.ts"
+        },
+        {
+          "path": "registry/neutral/groupped/util.ts",
+          "type": "registry:file",
+          "target": "cider/util.ts"
+        }
+      ]
+    }
+  ]
+}
