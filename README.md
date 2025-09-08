@@ -1,19 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
-## Cider (Shadcn dialog caller) Registry
+## Cider
 
 Cider provides a small set of components and utilities to open a Shadcn AlertDialog programmatically.
 
-### Registry Layout
+### installation
 
-- Directory: `registry/neutral/Cider`
-  - Includes: `components/ui/*`, `components/common/confirm-dialog.tsx`, `utils/dialog.ts`, `interfaces/common/dialog.ts`, `consts/common/dialog.ts`, and `lib/utils.ts`.
-- Index: `registry.json` (lists all registry items and their files)
+This package comes with modified shadcn `Button` and `AlertDialog` to include custom variant and add loading state to it. If don't need it, or want to install in existing project, you can use `groupped` registry to download file to separate directory first, then grab only files that you want.
 
-### How to Use
+- If install in fresh application, You can grab the files from this repository with shadcn registry command.
+   ```bash
+   bunx --bun shadcn@latest add https://cider-alert.vercel.app/r/default.json
+   ```
+   
+- For existing project, You can install it in separate groupped directory, then copy required file to your project manually.
+   ```bash
+   bunx --bun shadcn@latest add https://cider-alert.vercel.app/r/groupped.json
+   ```
+    This will store all files under `/cider` directory
+### Usage
 
-1. Copy files from `registry/neutral/Cider` into your project under `src/` preserving structure (or consume via `registry.json`).
-2. Add the host component at the app root (e.g. Next.js `src/app/layout.tsx`):
+1. Add `ConfirmDialog` component at the app root (e.g. Next.js `src/app/layout.tsx`):
 
    ```tsx
    import { ConfirmDialog } from "@/components/common/confirm-dialog";
@@ -34,7 +39,7 @@ Cider provides a small set of components and utilities to open a Shadcn AlertDia
    }
    ```
 
-3. Call the dialog anywhere:
+2. Call the dialog with `dialog` utility:
 
    ```tsx
    import { dialog } from "@/utils/dialog";
@@ -47,40 +52,3 @@ Cider provides a small set of components and utilities to open a Shadcn AlertDia
      });
    }
    ```
-
-Variants are also available: `dialog.success(...)`, `dialog.info(...)`, `dialog.warning(...)`, `dialog.danger(...)`, `dialog.error(...)`.
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
